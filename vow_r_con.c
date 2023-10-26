@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main(){
+  
 char in;
 printf("Enter an English alphabet: \n");
 scanf("%c", &in);
@@ -15,4 +16,5 @@ printf("\tThe given letter is a consonent\n");
 else{
 printf("\nInvaild Input. Please enter english alphabets ONLY.");
 }
+  return 0;
 }
