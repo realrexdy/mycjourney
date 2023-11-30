@@ -16,8 +16,18 @@ int main(){
     high = n;
     mid = n/2;
     low = 0;
-    ind = binser(a,key);
-    printf("%d is present at the %dth position of the array.\n", key, ind);
+    if(key<a[low] || key>a[high-1]){
+        printf("%d not found in the array.\n", key);
+    }
+    else{
+        ind = binser(a,key);
+    if(ind==0){
+        printf("%d not found in the array.\n", key);
+    }
+    else{
+        printf("%d is present at the %dth position of the array.\n", key, ind);
+    }
+    }
 }
 
 int binser(int *a, int key){
@@ -25,19 +35,22 @@ int binser(int *a, int key){
         return mid;
     }
     else if(a[mid+1]==key){
-        return mid+1;
+        return mid+2;
     }
     else if(a[mid-1]==key){
-        return mid-1;
+        return mid;
     }
     else if(a[mid]>key){
         high = mid;
-        mid = high/2;
+        mid = (high+low)/2;
+        return (binser(a,key)+1);
+    }
+    else if(a[mid]<key){
+        low = mid;
+        mid = (high+low)/2;
         return (binser(a,key)+1);
     }
     else{
-        low = mid;
-        mid = mid+((high-mid)/2);
-        return (binser(a,key)+1);
+        return 0;
     }
 }
