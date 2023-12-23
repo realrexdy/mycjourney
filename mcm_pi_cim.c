@@ -5,8 +5,10 @@
 int main() {
     srand(time(NULL));
 
-    int total_points = 100000000;
+    int total_points = 1000000000;
     int inside_circle = 0;
+printf("Start the simulation:\n");
+getchar();
 
     for (int i = 0; i < total_points; ++i) {
         double x = (double)rand() / RAND_MAX;
@@ -16,9 +18,9 @@ int main() {
             inside_circle++;
         }
 
-        if (i > 9850000) {
+        if (i > 999000000) {
             double pi_estimate = (double)inside_circle / i * 4;
-            printf("Iteration: %d     , Pi Estimate: %lf\n", i, pi_estimate);
+            printf("Iteration: %d                                              Pi Estimate: %lf\n", i, pi_estimate);
         }
     }
 
